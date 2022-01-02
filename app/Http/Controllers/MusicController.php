@@ -11,7 +11,7 @@ class MusicController extends Controller
     public function uploadMusic(Request $request) {
         if(!empty($request->file)){
             $validator = Validator::make($request->all(),[
-                'file' => 'file|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav,jpeg,png,jpg'
+                'file' => 'file|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav,jpeg,png,jpg,pdf'
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors()->getMessages();
