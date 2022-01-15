@@ -41,7 +41,7 @@ class ArtistController extends Controller
     }
 
     public function getallArtist(){
-        $allartist = Artist::all()->with('user')->get();
+        $allartist = Artist::with('user')->get();
         return response()->json($allartist,200);
 
     }
