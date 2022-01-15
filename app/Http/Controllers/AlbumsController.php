@@ -14,7 +14,7 @@ class AlbumsController extends Controller
         
         $validator = Validator::make($request->all(),[
             'albumName' => 'required',
-            'artistID' => 'required|exists:artist.id',
+            'artistID' => 'required|exists:artists,id',
             'albumDescription' => 'required|max:255',
             'year' => 'required|integer',
             'genre' => 'required',

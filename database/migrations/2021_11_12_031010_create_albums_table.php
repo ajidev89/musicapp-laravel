@@ -20,6 +20,7 @@ class CreateAlbumsTable extends Migration
             $table->string("albumDescription");
             $table->string("genre");
             $table->string("year");
+            $table->boolean("status");
             $table->timestamps();
         });
     }
