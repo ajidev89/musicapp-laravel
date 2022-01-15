@@ -15,6 +15,9 @@ class CreateArtistsTable extends Migration
     {
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
+            $table->string("artistName");
+            $table->boolean("verified");
+            $table->bigInteger("uuid");
             $table->timestamps();
         });
     }
