@@ -34,7 +34,7 @@ class ArtistController extends Controller
         //Add as an Artist
         $artist = new Artist;
         $artist->artistName = $request->artistName;
-        $artist->uuid -> $user->id;
+        $artist->uuid = $user->id;
         $artist->save();
 
         return response()->json('Successfully added artist',200);
