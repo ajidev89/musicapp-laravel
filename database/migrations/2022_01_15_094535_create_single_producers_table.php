@@ -18,7 +18,7 @@ class CreateSingleProducersTable extends Migration
             $table->id();
             $table->string("name");
             $table->boolean("status")->default(1);
-            $table->bigIncrements("musicID");
+            $table->bigInteger("musicID");
             $table->timestamps();
         });
     }
