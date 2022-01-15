@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArtistsTable extends Migration
+class CreateSingleProducersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateArtistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('artists', function (Blueprint $table) {
+        Schema::create('single_producers', function (Blueprint $table) {
             $table->id();
-            $table->string("artistName");
-            $table->boolean("verified")->default(0);
-            $table->bigInteger("uuid");
+            $table->id();
+            $table->string("name");
+            $table->boolean("status")->default(1);
+            $table->bigIncrements("musicID");
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateArtistsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('artists');
+        Schema::dropIfExists('single_producers');
     }
 }

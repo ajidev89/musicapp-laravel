@@ -15,16 +15,25 @@ use Illuminate\Support\Facades\Validator;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:sanctum','Roles:artist','Roles:admin'], function(){
+    Route::post('add-album', 'App\Http\Controllers\AlbumsController@addAlbum');
+    Route::post('upload', 'App\Http\Controllers\MusicController@uploadMusic');
+    Route::post('new-music', 'App\Http\Controllers\MusicController@postMusic');
+    Route::put('music/{id}', 'App\Http\Controllers\MusicController@putMusic');
+    Route::put('music/{id}/change-status', 'App\Http\Controllers\MusicController@changeStatusMusic');
+
 });
-Route::post('add-album', 'App\Http\Controllers\AlbumsController@addAlbum');
-Route::post('upload', 'App\Http\Controllers\MusicController@uploadMusic');
-Route::post('new-music', 'App\Http\Controllers\MusicController@postMusic');
-Route::put('music/{id}', 'App\Http\Controllers\MusicController@putMusic');
+
+Route::group(['middleware' => 'auth:sanctum','Roles:admin'], function(){
+    Route::post('admin/artist', 'App\Http\Controllers\ArtistController@addArtist');
+    Route::get('admin/artist', 'App\Http\Controllers\ArtistController@getallArtist');
+});
+
+
+
 Route::get('music/latest', 'App\Http\Controllers\MusicController@lastestMusic');
-Route::put('music/{id}/change-status', 'App\Http\Controllers\MusicController@changeStatusMusic');
 
 //User Routes
 Route::post('register/{role}', 'App\Http\Controllers\UserController@Register');
 Route::post('login', 'App\Http\Controllers\UserController@loginUser');
+Route::post('check-token', 'App\Http\Controllers\UserController@checkToken');
