@@ -24,3 +24,7 @@ Route::post('new-music', 'App\Http\Controllers\MusicController@postMusic');
 Route::put('music/{id}', 'App\Http\Controllers\MusicController@putMusic');
 Route::get('music/latest', 'App\Http\Controllers\MusicController@lastestMusic');
 Route::put('music/{id}/change-status', 'App\Http\Controllers\MusicController@changeStatusMusic');
+
+//User Routes
+Route::post('register/{role}', 'App\Http\Controllers\UserController@Register');
+Route::post('login', 'App\Http\Controllers\UserController@loginUser');
