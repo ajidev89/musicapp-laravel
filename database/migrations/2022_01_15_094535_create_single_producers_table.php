@@ -15,7 +15,6 @@ class CreateSingleProducersTable extends Migration
     {
         Schema::create('single_producers', function (Blueprint $table) {
             $table->id();
-            $table->id();
             $table->string("name");
             $table->boolean("status")->default(1);
             $table->bigInteger("musicID");
