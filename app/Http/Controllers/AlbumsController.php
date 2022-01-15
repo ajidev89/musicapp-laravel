@@ -27,7 +27,7 @@ class AlbumsController extends Controller
 
         $album = new Albums;
         $album->albumName = request('albumName');
-        $album->ID = request('artistID');
+        $album->artistID = request('artistID');
         $album->albumDescription = request('albumDescription');
         $album->year = request('year');
         $album->genre = request('genre');
