@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth:sanctum','Roles:artist','Roles:admin'], func
 Route::group(['middleware' => 'auth:sanctum','Roles:admin'], function(){
     Route::post('admin/artist', 'App\Http\Controllers\ArtistController@addArtist');
     Route::get('admin/artist', 'App\Http\Controllers\ArtistController@getallArtist');
-    Route::post('admin/albums', 'App\Http\Controllers\AlbumsController@getAllAlbums');
+    Route::get('admin/albums', 'App\Http\Controllers\AlbumsController@getAllAlbums');
 });
 
 
