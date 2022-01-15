@@ -30,10 +30,10 @@ class ArtistController extends Controller
         $user->role = 'artist';
         $user->password = Hash::make(Str::random(16)); 
         $user->save();
-        $token = $user->createToken($user->email)->plainTextToken;
 
         //Add as an Artist
         $artist = new Artist;
+        $artist->artistName = $request->artistName;
         $artist->uuid -> $user->id;
         $artist->save();
 
