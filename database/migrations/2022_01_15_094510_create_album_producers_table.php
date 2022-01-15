@@ -17,7 +17,7 @@ class CreateAlbumProducersTable extends Migration
             $table->id();
             $table->string("name");
             $table->boolean("status")->default(1);
-            $table->bigIncrements("albumID");
+            $table->bigInteger("albumID");
             $table->timestamps();
         });
     }
