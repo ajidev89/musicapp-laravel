@@ -45,9 +45,9 @@ class AlbumsController extends Controller
 
     }
     public function getAllAlbums(){
-        $orders = Albums::with('artist')->with('producers')->get();
+        $albums = Albums::with('artist')->with('producers')->get();
+        return response()->json($albums,200);   
     }
-
 
     public function addSongtoAlbum($id){
         
