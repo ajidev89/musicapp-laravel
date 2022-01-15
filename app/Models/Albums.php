@@ -20,7 +20,7 @@ class Albums extends Model
         return $this->hasOne(Artist::class,'id','artistID');
     }
 
-    // protected $hidden = [
-    //     'userId',
-    // ];
+    protected $hidden = [
+        'artistID',
+    ];
 }
