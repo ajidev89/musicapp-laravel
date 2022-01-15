@@ -33,9 +33,9 @@ class AlbumsController extends Controller
         $album->genre = request('genre');
         $album->save();
         
-        foreach ($request->producers as $producer) {
+        foreach ($request->producers as $producerName) {
             $producer = new AlbumProducer;
-            $producer->name = $producer;
+            $producer->name = $producerName;
             $producer->albumID = $album->id;
             $producer->save();
         }
