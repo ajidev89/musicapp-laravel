@@ -14,4 +14,8 @@ class Artist extends Model
     {
         return $this->hasOne(User::class,'id','uuid');
     }
+    
+    protected $hidden = [
+        'uuid',
+    ];
 }
