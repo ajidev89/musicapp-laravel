@@ -21,7 +21,8 @@ class AlbumsController extends Controller
             'year' => 'required|integer',
             'genre' => 'required',
             'producers' => 'required|array', 
-            'image'=>'required|url'
+            'image'=>'required|url',
+            'status'=>'required|boolean'
         ]);
         if ($validator->fails()) {
             $errors = $validator->errors()->getMessages();
@@ -35,6 +36,7 @@ class AlbumsController extends Controller
         $album->year = request('year');
         $album->genre = request('genre');
         $album->image_url = request("image");
+        $album->status = request("status");
         $album->save();
         
         foreach ($request->producers as $producerName) {
