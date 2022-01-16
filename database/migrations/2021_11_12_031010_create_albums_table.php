@@ -17,7 +17,8 @@ class CreateAlbumsTable extends Migration
             $table->id();
             $table->string("albumName");
             $table->bigInteger("artistID");
-            $table->string("albumDescription");
+            $table->string("image_url");
+            $table->longText("albumDescription");
             $table->string("genre");
             $table->string("year");
             $table->boolean("status");

@@ -16,10 +16,17 @@ use Illuminate\Support\Facades\Validator;
 */
 
 Route::group(['middleware' => 'auth:sanctum','Roles:artist','Roles:admin'], function(){
+    //albums
     Route::post('add-album', 'App\Http\Controllers\AlbumsController@addAlbum');
+    Route::post('album/music', 'App\Http\Controllers\AlbumsController@addSongtoAlbum');
+
+    //upload
     Route::post('upload', 'App\Http\Controllers\MusicController@uploadMusic');
-    Route::post('new-music', 'App\Http\Controllers\MusicController@postMusic');
-    Route::put('music/{id}', 'App\Http\Controllers\MusicController@putMusic');
+
+    //Singles
+    Route::post('single/music', 'App\Http\Controllers\MusicController@postSingleMusic');
+    Route::put('single/music/{id}', 'App\Http\Controllers\MusicController@putSingleMusic');
+
     Route::put('music/{id}/change-status', 'App\Http\Controllers\MusicController@changeStatusMusic');
 
 });

@@ -15,6 +15,8 @@ class CreateFeaturedArtistsTable extends Migration
     {
         Schema::create('featured_artists', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("musicId");
+            $table->string("artistName");
             $table->timestamps();
         });
     }

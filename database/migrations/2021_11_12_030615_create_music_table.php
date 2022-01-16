@@ -15,16 +15,14 @@ class CreateMusicTable extends Migration
     {
         Schema::create('music', function (Blueprint $table) {
             $table->id();
-            $table->string("url");
+            $table->string("url");//song url
             $table->string("image_url");
-            $table->string("artist");
-            $table->json("featuredArtists")->nullable();
-            $table->string("description");
+            $table->bigInteger("artistID");
+            $table->longText("description");
             $table->string("songTitle");
             $table->string("year");
             $table->boolean("isSingle")->nullable();
             $table->bigInteger("albumId")->nullable();
-            $table->string("views")->nullable();
             $table->boolean("editorpicks")->nullable();
             $table->boolean("status");
             $table->timestamps();
