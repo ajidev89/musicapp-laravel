@@ -21,6 +21,7 @@ class CreateMusicTable extends Migration
             $table->longText("description");
             $table->string("songTitle");
             $table->string("year");
+            $table->bigInteger("trackList")->nullable();
             $table->boolean("isSingle")->nullable();
             $table->bigInteger("albumId")->nullable();
             $table->boolean("editorpicks")->nullable();

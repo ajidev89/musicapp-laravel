@@ -22,6 +22,10 @@ class Music extends Model
         return $this->hasMany(FeaturedArtist::class,'musicId','id');
     }
 
+    protected $hidden = [
+        'artistID','albumId'
+    ];
+
 
 
 }

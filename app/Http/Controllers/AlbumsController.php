@@ -62,6 +62,7 @@ class AlbumsController extends Controller
             'description' => "required",
             'songTitle' => "required",
             'url' => 'required|url',
+            'tracklist' => 'required',
             "albumID" => 'required|exists:albums,id',
             'status' =>'required|boolean'
         ]);
