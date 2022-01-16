@@ -100,4 +100,9 @@ class AlbumsController extends Controller
 
         return response()->json("Sucessfully added song to album",200);        
     }
+
+    public function lastestAlbums(){
+        $lastest = Albums::orderBy('created_at', 'desc')->with("artist")->with("producers")->with("songs")->take(6)->get();
+        return response()->json($lastest);
+    }
 }

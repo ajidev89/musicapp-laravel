@@ -100,7 +100,7 @@ class MusicController extends Controller
         $putMusic->year = $request->year;
         $putMusic->save();
 
-        
+
         return response()->json("Successfully updated music",200);
     }
 
@@ -118,7 +118,7 @@ class MusicController extends Controller
 
 
     public function lastestMusic(){
-        $lastest = Music::orderBy('created_at', 'desc')->take(6)->get();
+        $lastest = Music::orderBy('created_at', 'desc')->with("artist")->with("featuredArtists")->take(40)->get();
         return response()->json($lastest);
     }
 }

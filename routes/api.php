@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth:sanctum','Roles:admin'], function(){
 
 
 Route::get('music/latest', 'App\Http\Controllers\MusicController@lastestMusic');
+Route::get('album/latest', 'App\Http\Controllers\AlbumsController@lastestAlbums');
 
 //User Routes
 Route::post('register/{role}', 'App\Http\Controllers\UserController@Register');
