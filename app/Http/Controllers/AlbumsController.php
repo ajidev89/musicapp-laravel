@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AlbumProducer;
-use App\Models\Albums;
 use App\Models\Music;
+use App\Models\Albums;
 use Illuminate\Http\Request;
+use App\Models\AlbumProducer;
+use App\Models\FeaturedArtist;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -45,6 +46,7 @@ class AlbumsController extends Controller
         return response()->json('Successfully added album',200);
 
     }
+
     public function getAllAlbums(){
         $albums = Albums::with('artist')->with('producers')->get();
         return response()->json($albums,200);   
@@ -81,20 +83,18 @@ class AlbumsController extends Controller
         $newMusic->description = $request->description;
         $newMusic->save();
 
+        //featured Artist
 
-              //New Music
-              $newMusic = new Music;
-              $newMusic->songTitle = $request->songTitle;
-              $newMusic->year = $request->year;
-              $newMusic->description = $request->description;
-              $newMusic->url = $request->url;
-              $newMusic->isSingle = true;
-              $newMusic->artistID = $request->artistID;
-              $newMusic->year = $request->year;
-              $newMusic->image_url = $request->image_url;
-              $newMusic->status = $request->status;
-              $newMusic->save();
+        if (count($request->featuredArtists) >= 1) {
+            
+            foreach ($request->featuredArtists as $key => $featuredArtistName) {
+                $featuredArtist = new FeaturedArtist;
+                $featuredArtist->artistName = $featuredArtistName;
+                $featuredArtist->musicId = $newMusic->id;
+                $featuredArtist->save();
+            }
+        }
 
-        
+        return response()->json("Sucessfully added song to album",200);        
     }
 }
