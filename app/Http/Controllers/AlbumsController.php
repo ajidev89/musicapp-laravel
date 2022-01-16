@@ -102,7 +102,7 @@ class AlbumsController extends Controller
     }
 
     public function lastestAlbums(){
-        $lastest = Albums::orderBy('created_at', 'desc')->with("artist")->with("producers")->with("songs")->take(6)->get();
+        $lastest = Albums::orderBy('created_at', 'desc')->with("artist")->with("producers")->with("songs.featuredArtists")->take(6)->get();
         return response()->json($lastest);
     }
 }
