@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Music;
 use App\Models\AlbumProducer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,6 +14,11 @@ class Albums extends Model
     public function producers()
     {
         return $this->hasMany(AlbumProducer::class,'albumID','id');
+    }
+
+    public function songs()
+    {
+        return $this->hasMany(Music::class,'albumId','id');
     }
 
     public function artist()

@@ -50,7 +50,7 @@ class AlbumsController extends Controller
     }
 
     public function getAllAlbums(){
-        $albums = Albums::with('artist')->with('producers')->get();
+        $albums = Albums::with('artist')->with('producers')->with("songs")->get();
         return response()->json($albums,200);   
     }
 
